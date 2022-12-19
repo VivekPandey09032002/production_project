@@ -1,6 +1,5 @@
 const cookieParser = require('cookie-parser')
 const express = require('express')
-const { nextTick } = require('process')
 const app = express()
 const cors = require('cors');
 const errorMiddleware = require('./middleware/error')
@@ -21,6 +20,16 @@ app.use('/api/v1',order)
 app.use('/api/v1',product)
 app.use('/api/v1',user)
 
+//home page route connect client
+
+if(process.env.NODE_ENV=='production'){
+   
+}
+const path = require('path')
+app.get('/',(req,res) => {
+    app.use(express.static(path.join(__dirname,'..','frontend','dist')))
+    res.sendFile(path.resolve(__dirname,'..','frontend','dist','index.html'))
+})
 
 //middleware for error -> last middleware
 app.use(errorMiddleware)
