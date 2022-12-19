@@ -27,7 +27,7 @@ if(process.env.NODE_ENV=='production'){
 }
 const path = require('path')
 app.get('/',(req,res) => {
-    app.use(express.static(path.join(__dirname,'..','frontend','dist')))
+    app.use(express.static(path.join(__dirname,'..','frontend','dist','assets')))
     res.sendFile(path.resolve(__dirname,'..','frontend','dist','index.html'))
 })
 
