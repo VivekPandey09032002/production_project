@@ -1,5 +1,5 @@
 {
-    "bulids" : [
+    "builds" : [
         {
             "src" : "./backend/server.js",
             "use" : "@vercel/node"
